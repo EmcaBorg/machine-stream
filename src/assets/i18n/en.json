@@ -1,0 +1,16 @@
+﻿{
+  "COLUMNS": {
+    "STATUS": "Status",
+    "MACHINE_TYPE": "Machine Type",
+    "LONGITUDE": "Longitude",
+    "LATITUDE": "Latitude",
+    "LAST_MAINTENANCE": "Last Maintenance",
+    "INSTALL_DATE": "Install Date",
+    "FLOOR": "Floor"
+  },
+  "LABELS": {
+    "DETAILS": "Details",
+    "EVENTS": "Events"
+  }
+}
+

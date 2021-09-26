@@ -1,0 +1,63 @@
+@import "variables";
+
+@function get-custom-color($key) {
+  @if map-has-key($custom-colors, $key) {
+    @return map-get($custom-colors, $key);
+  }
+  @warn "Unknown `#{$key}` in $colors.";
+  @return null;
+}
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  } @else {
+    @warn "`$breakpoints` map is missing.";
+
+  }
+}
+
+@mixin common-text() {
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+@mixin flex-space-around() {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+@mixin flex-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flex-stretch() {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+}
+
+@mixin flex-center() {
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-wrap() {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-end() {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+

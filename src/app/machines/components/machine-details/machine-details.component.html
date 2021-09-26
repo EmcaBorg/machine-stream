@@ -1,0 +1,38 @@
+<div id="machine-details" class="row justify-content-sm-center no-gutters">
+
+    <div class="col-sm-6">
+
+        <mat-tab-group *ngIf="(machine$ | async)" mat-align-tabs="center">
+            <mat-tab label="{{ 'LABELS.DETAILS'|translate }}">
+                <h4 class="mat-h4">{{ 'COLUMNS.STATUS'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).status|uppercase}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.MACHINE_TYPE'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).machine_type|title}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.LONGITUDE'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).longitude}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.LATITUDE'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).latitude}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.LAST_MAINTENANCE'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).last_maintenance|date:'long'}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.INSTALL_DATE'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).install_date}}</p>
+                <h4 class="mat-h4">{{ 'COLUMNS.FLOOR'|translate }}</h4>
+                <p class="mat-small">{{(machine$ | async).floor}}</p>
+            </mat-tab>
+            <mat-tab label="{{ 'LABELS.EVENTS'|translate }}">
+                <mat-list>
+                    <mat-list-item *ngFor="let event of (machine$ | async).events">
+                        <mat-icon mat-list-icon>event</mat-icon>
+                        <div mat-line>{{event.status|uppercase}}</div>
+                        <p class="mat-small" mat-line> {{event.timestamp|date:'medium'}} </p>
+                    </mat-list-item>
+                </mat-list>
+            </mat-tab>
+        </mat-tab-group>
+
+    </div>
+
+</div>
+
+
+
